@@ -164,7 +164,6 @@ else if (role === 'moderator') console.log('Moderator User');
 else console.log('Unknown User');
 
 // Exercise 1 - Array from Range
-
 const numbers = arrayFromRange (-10, -4);
 console.log(numbers);
 function arrayFromRange(min,max){
@@ -174,3 +173,89 @@ function arrayFromRange(min,max){
 return output;
     
 }
+
+//Excercise 2 - Includes
+const numbers1 = [1, 2, 3, 4];
+console.log(numbers1.includes(1));
+function includes(array, searchElement){
+    for (let element of array)
+    if (element === searchElement)
+    return true;
+return false;
+}
+
+//Exercise 3 - Except
+const numbers2 = [1, 2, 3, 4, 1];
+const output = except (numbers2, [1, 2]);
+console.log (output);
+function except (array, excluded){
+    const output = [];
+    for (let element of array)
+    if (!excluded.includes(element))
+    output.push(element);
+return output;
+}
+
+//Exercise 4 - Moving an element
+const numbers3 = [1, 2, 3, 4];
+const output1 = move(numbers3, 0, 1);
+console.log(output1);
+function move(array, index, offset){
+    const position = index + offset;
+    if(position >= array.length || position <0){
+        console.error('Invalid offset.');
+        return;
+    }
+    const output1 = [...array]; //this is a copy of the original array
+    const element = output.splice(index, 1)[0];
+    output.splice(position, 0, element);
+    return output1;
+}
+
+//Exercise 5 - Count occurrences
+const numbers4 = [1, 2, 3, 4];
+const count = countOccurrences(numbers4, 1);
+console.log(count);
+function countOccurrences(array, searchElement){
+    //let count = 0
+    //for (let element of array)
+    //if (element === searchElement)
+    //count++;
+    //return count;
+    return array.reduce((accumulator, current)=>{
+        const occurrence = (current === searchElement)
+        console.log(accumulator, current, searchElement)
+        return accumulator + occurrence;
+    }, 0);
+}
+
+//Exercise 6 - Get Max
+const numbers5 = [1, 2, 3, 4];
+const max = getMax(numbers5);
+console.log(max);
+function getMax(array){
+    if (array.length === 0) return undefined;
+//     let max = array[0];
+//     for (let i = 1; i < array.length; i++);
+//     if (array[i] > max)
+//     max = array[i];
+// return max;
+    return array.reduce((aa, bb) => (aa > bb) ? aa : bb); // same result in a reduced method
+}
+
+//Exercise 7 - Movies
+// Get all the movies in 2018 with rating > 4, Sort them by their rating in a descending order, 
+//Only pick the title property and display on console.
+const movies = [
+    {title: 'a', year: 2018, rating: 4.5},
+    {title: 'b', year: 2018, rating: 4.7},
+    {title: 'c', year: 2018, rating: 3},
+    {title: 'd', year: 2017, rating: 4.5},
+];
+
+const titles = movies
+.filter(m => m.year === 2018 && m.rating >=4)
+.sort((a,b) => a.rating - b.rating)
+.reverse()
+.map(m => m.title)
+console.log(titles);
