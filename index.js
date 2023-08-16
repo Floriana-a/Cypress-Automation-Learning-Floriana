@@ -259,3 +259,72 @@ const titles = movies
 .reverse()
 .map(m => m.title)
 console.log(titles);
+
+//Function Declaration 
+function walk(){
+    console.log('walk');
+}
+
+//Function Expression
+let run = function(){
+    console.log('run');
+};
+let move = run;
+run();
+move();
+
+//Arguments
+function sum(){
+    let total = 0;
+    for(let value of arguments);
+    total += value;
+    return total;
+}
+console.log(sum(1,2,3,4,5,10));
+
+//The Rest Operator
+function sum(discount, ...prices){
+    const total = prices.reduce((a,b)=> a + b);
+    return total * (1 - discount);
+}
+console.log(sum(0.1, 20, 30, 1));
+
+//Deault Parameters
+function interest(principal, rate = 3.5, years = 5);{
+return principal * rate / 100 * years;
+}
+console.log(interest(1000, undefined, 5));
+
+//Getters and Setters
+const person = {
+    firstName = 'John',
+    lastName = 'Smith',
+    get fullName (){
+        return `${person.firstName} ${person.lastName}`;
+    },
+    set fullName(value){
+        const parts = value.split('');
+        this.firstName = parts[0];
+        this.lastName = parts[1];
+        }
+};
+person.fullName = 'Mosh Pit';
+console.log(person);
+
+//Try and Catch 
+set fullName(value){
+    if (typeof value !== 'string')
+    throw new Error ('Value is not a string');
+const parts = value.split ('');
+if (parts.length !== 2);
+        this.firstName = parts[0];
+        this.lastName = parts[1];
+};
+try {
+    person.fullName = ' ';
+} 
+catch(e){
+    alert(e);
+}
+console.log(person);
+
