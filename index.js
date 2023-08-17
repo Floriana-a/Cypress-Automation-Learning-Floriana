@@ -328,3 +328,67 @@ catch(e){
 }
 console.log(person);
 
+//Local vs Global Scope
+const color = 'red';
+function start(){
+    const message = 'bye'; 
+}
+start();
+
+//Let vs Var
+var color = 'red';
+let age = 30;
+function sayHi(){
+    console.log('Hi');
+}
+
+//The This Keyword
+//method -> obj
+//function -> global (window, global)
+const video = {
+    title: 'a',
+    tags: ['a', 'b', 'c'],
+    showTags (){
+        this.tags.forEach(function(tag){
+            console.log(this.title, tag);
+        }, this);
+    }
+};
+video.showTags();
+
+//Exercise 1 - Sum of Arguments
+//sum ([1, 2, 3, 4]) =>
+console.log(sum(1,2,3,4));
+function sum (... items){
+    if (items.length === 1 && Array.isArray(items[0]))
+    items = [...items [0]];
+    return items.reduce ((a,b) => a+b);
+}
+
+//Exercise 2 - Area of Circle
+const circle = {
+    radius: 1,
+    get area(){
+        return Math.PI * this.radius * this.radius;
+    }
+};
+console.log(circle.area);
+
+//Exercise 3 - Error Handling
+try {
+    const numbers = [1,2,3,4];
+    const count = countOccurrences(null, 1);
+    console.log(count);
+}
+catch(e){
+    console.log(e.message);
+}
+function countOccurrences(array, searchElement){
+    if (!Array.isArray(array))
+    throw new Error('Invalid Array.');
+
+    return array.reduce((accumulator, current) => {
+        const occurrence = (current === searchElement) ? 1 : 0;
+        return accumulator + occurrence;
+    },0);
+}
