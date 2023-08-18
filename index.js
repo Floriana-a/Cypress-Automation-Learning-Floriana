@@ -269,7 +269,7 @@ function walk(){
 let run = function(){
     console.log('run');
 };
-let move = run;
+let move = run();
 run();
 move();
 
@@ -296,51 +296,51 @@ return principal * rate / 100 * years;
 console.log(interest(1000, undefined, 5));
 
 //Getters and Setters
-const person = {
-    firstName = 'John',
-    lastName = 'Smith',
-    get fullName (){
-        return `${person.firstName} ${person.lastName}`;
-    },
-    set fullName(value){
-        const parts = value.split('');
-        this.firstName = parts[0];
-        this.lastName = parts[1];
-        }
-};
-person.fullName = 'Mosh Pit';
-console.log(person);
+// const person = {
+//     firstName = 'John',
+//     lastName = 'Smith',
+//     get fullName (){
+//         return `${person.firstName} ${person.lastName}`;
+//     },
+//     set fullName(value){
+//         const parts = value.split('');
+//         this.firstName = parts[0];
+//         this.lastName = parts[1];
+//         }
+// };
+// person.fullName = 'Mosh Pit';
+// console.log(person);
 
 //Try and Catch 
-set fullName(value){
-    if (typeof value !== 'string')
-    throw new Error ('Value is not a string');
-const parts = value.split ('');
-if (parts.length !== 2);
-        this.firstName = parts[0];
-        this.lastName = parts[1];
-};
-try {
-    person.fullName = ' ';
-} 
-catch(e){
-    alert(e);
-}
-console.log(person);
+// set fullName(value){
+//     if (typeof value !== 'string')
+//     throw new Error ('Value is not a string');
+// const parts = value.split ('');
+// if (parts.length !== 2);
+//         this.firstName = parts[0];
+//         this.lastName = parts[1];
+// };
+// try {
+//     person.fullName = ' ';
+// } 
+// catch(e){
+//     alert(e);
+// }
+// console.log(person);
 
 //Local vs Global Scope
-const color = 'red';
-function start(){
-    const message = 'bye'; 
-}
-start();
+// const color = 'red';
+// function start(){
+//     const message = 'bye'; 
+// }
+// start();
 
 //Let vs Var
-var color = 'red';
-let age = 30;
-function sayHi(){
-    console.log('Hi');
-}
+// var color = 'red';
+// let age = 30;
+// function sayHi(){
+//     console.log('Hi');
+// }
 
 //The This Keyword
 //method -> obj
